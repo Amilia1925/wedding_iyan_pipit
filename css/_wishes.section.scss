@@ -1,0 +1,71 @@
+.wishes-preview {
+    position: relative;
+    color: var(--color-dark);
+    @include max-lg {
+        margin-top: 2rem;
+    }
+    .card {
+        border: none;
+        background-color: transparent;
+        border-radius: var(--border-radius);
+
+        .card-body {
+            overflow: hidden;
+            padding: 2rem 0;
+
+            .wishes {
+                text-align: left;
+                height: 28rem;
+                overflow: auto;
+                padding-right: 1rem;
+
+                // Scrollbar styles
+                &::-webkit-scrollbar {
+                    width: 5px;
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: #eee;
+                    border-radius: 20px;
+                    opacity: 0.15;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: var(--color-secondary);
+                    border-radius: 20px;
+                }
+
+                .wish {
+                    margin-bottom: 1.5rem;
+                    display: flex;
+                    align-items: flex-start;
+                    background-color: rgba(255, 255, 255, 0.9); // Light background for cards
+                    border-radius: 10px; // Rounded corners
+                    padding: 1rem; // Padding around the card content
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+
+                    .wish-badge {
+                        background-color: var(--color-light);
+                        width: 35px;
+                        aspect-ratio: 1;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%; // Circle badge
+                        margin-right: 1rem; // Space between badge and text
+                        font-weight: bold; // Make initials bold
+                    }
+
+                    .wish-description {
+                        flex: 1; // Take remaining space
+                        h6 {
+                            font-weight: bold;
+                            margin: 0 0 0.25rem; // Adjust margin for header
+                        }
+                        p {
+                            margin: 0; // Remove default margin
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

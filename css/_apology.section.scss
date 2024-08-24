@@ -1,0 +1,82 @@
+.apology-section {
+	position: relative;
+	padding: 5rem 0;
+	@include max-md {
+		padding: 3rem 0;
+	}
+	.orn-1 {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 180px;
+		transform: translate(-40%, -50%) scaleX(-1) rotate(-15deg);
+		@include max-lg {
+			width: 160px;
+		}
+		img {
+			transform-origin: 50% 100%;
+		}
+		.orn-3 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 140px;
+			transform: translate(30%, -50%) scaleX(-1);
+			@include max-lg {
+				width: 120px;
+			}
+			@include max-md {
+				width: 100px;
+			}
+			@include max-xs {
+				width: 80px;
+			}
+		}
+	}
+	.orn-2 {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 180px;
+		transform: translate(40%, 0) rotate(-15deg);
+		@include max-lg {
+			width: 160px;
+		}
+		@include max-md {
+			width: 140px;
+		}
+		@include max-xs {
+			width: 120px;
+		}
+		img {
+			transform-origin: 50% 100%;
+		}
+		.orn-3 {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 140px;
+			transform: translate(0%, 30%) scaleY(-1) rotate(-25deg);
+			@include max-lg {
+				width: 120px;
+			}
+			@include max-md {
+				width: 100px;
+			}
+			@include max-xs {
+				width: 80px;
+			}
+		}
+	}
+	.appology-wrap {
+		position: relative;
+		padding: 3rem 2rem;
+		background: var(--color-primary);
+		border: 2px solid $border-gold;
+		border-radius: var(--border-radius);
+		color: var(--color-dark);
+		@include max-md {
+			padding: 2rem 1rem;
+		}
+	}
+}
