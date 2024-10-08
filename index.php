@@ -766,63 +766,7 @@
                     </div>
                 </section>
                 <!-- rsvp section -->
-                <section class="rsvp-section">
-                    <div class="orn-1">
-                        <div class="orn-3">
-                            <div class="image-element" data-anim="fade-right">
-                                <img src="https://media.viding.co/dmlkaW5nIGNvIGltYWdlIHByb3h5IGJ5IGZseS5pbw/rs:auto:0:0:1/g:no/aHR0cHM6Ly92aWRpbmcuY28vaW52aXRhdGlvbi90aGVtZV84Ni9hc3NldHMvaW1hZ2VzL2Zsb3JhbC0yLnBuZw.webp" alt="floral-2" class="img-fluid animate-loop" data-anim="rotate-left">
-                            </div>
-                        </div>
-                        <div class="image-element" data-anim="fade-right">
-                            <img src="https://media.viding.co/dmlkaW5nIGNvIGltYWdlIHByb3h5IGJ5IGZseS5pbw/rs:auto:0:0:1/g:no/aHR0cHM6Ly92aWRpbmcuY28vaW52aXRhdGlvbi90aGVtZV84Ni9hc3NldHMvaW1hZ2VzL2Zsb3JhbC0xLnBuZw.webp" alt="floral-1" class="img-fluid" data-anim="rotate-left">
-                        </div>
-                    </div>
-                    <div class="orn-2">
-                        <div class="orn-3">
-                            <div class="image-element" data-anim="fade-right">
-                                <img src="https://media.viding.co/dmlkaW5nIGNvIGltYWdlIHByb3h5IGJ5IGZseS5pbw/rs:auto:0:0:1/g:no/aHR0cHM6Ly92aWRpbmcuY28vaW52aXRhdGlvbi90aGVtZV84Ni9hc3NldHMvaW1hZ2VzL2Zsb3JhbC0yLnBuZw.webp" alt="floral-2" class="img-fluid animate-loop" data-anim="rotate-left">
-                            </div>
-                        </div>
-                        <div class="image-element" data-anim="fade-right">
-                            <img src="https://media.viding.co/dmlkaW5nIGNvIGltYWdlIHByb3h5IGJ5IGZseS5pbw/rs:auto:0:0:1/g:no/aHR0cHM6Ly92aWRpbmcuY28vaW52aXRhdGlvbi90aGVtZV84Ni9hc3NldHMvaW1hZ2VzL2Zsb3JhbC0xLnBuZw.webp" alt="floral-1" class="img-fluid animate-loop" data-anim="rotate-right">
-                        </div>
-                    </div>
-                    <div class="container position-relative">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8 col-lg-6 position-relative">
-                                <div class="rsvp-wrapper">
-                                    <div class="rsvp-form">
-                                        <div class="title-section" data-anim="fade-down">
-                                            <h2>
-                                                <p>RSVP</p>
-                                            </h2>
-                                        </div>
-                                        <div id="cardRSVP">
-                                            <form id="tambahdata" action="post_rsvp.php" method="post" data-anim="fade" data-anim-delay="500">
-                                                <input required type="text" name="name" class="form-control mb-3" placeholder="Nama" data-anim="zoom-in-up" data-anim-delay="500">
-                                                <input required maxlength="3" max="100" type="number" name="jumlah" class="form-control mb-3" placeholder="Jumlah Tamu" min="1" data-anim="zoom-in-up" data-anim-delay="500">
-                                                <select required name="status" class="form-select mb-3" data-anim="zoom-in-up" data-anim-delay="500">
-                                                    <option disabled selected>Konfirmasi Kehadiran</option>
-                                                    <option value="1">Hadir</option>
-                                                    <option value="0">Tidak Hadir</option>
-                                                </select>
-                                                <input type="hidden" name="invitation_id" value="">
-                                                <input type="hidden" name="stepper_id" value="12169">
-                                                <div class="row justify-content-center">
-                                                    <div class="col-md-6">
-                                                        <button class="btn btn-custom color-secondary w-100" type="submit" id="tombolsimpan" data-anim="zoom-in-up" data-anim-delay="500">Kirim</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div id="responseMessage" class="m-4 text-center"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
+               </section>
 
             <!-- Wishes section -->
             <section class="wishes-section moveable-section" data-id="6">
@@ -1470,43 +1414,7 @@ document.getElementById('wishForm').addEventListener('submit', function(event) {
                 return $(".moveable-section[data-id='" + elm + "']");
             })
         );
-        //rsvp
-        $(document).ready(function() {
-            $("#tambahdata").validate({
-                submitHandler: function(form) {
-                    $('#tombolsimpan').prop('disabled', true);
-                    $('#tombolsimpan').html('Sending..');
-
-                    $.ajax({
-                        data: $(form).serialize(),
-                        url: "post_rsvp.php", // Endpoint PHP
-                        type: "POST",
-                        dataType: 'json',
-                        success: function(data) {
-                            $('#tombolsimpan').html('Kirim');
-
-                            if (data.status === 'success') {
-                                $('#responseMessage').html("<p class='text-success'>Data berhasil dikirim. Terima kasih!</p>");
-                                $('#tambahdata').fadeOut(); // Menyembunyikan form dengan efek fade out
-                            } else {
-                                $('#responseMessage').html("<p class='text-danger'>Gagal mengirim data. Silakan coba lagi.</p>");
-                            }
-                            $('#tombolsimpan').prop('disabled', false);
-                        },
-                        error: function(xhr, status, error) {
-                            $('#tombolsimpan').prop('disabled', false);
-                            $('#tombolsimpan').html('Kirim');
-                            console.error('Error:', error);
-                            $('#responseMessage').html("<p class='text-danger'>Terjadi kesalahan. Silakan coba lagi nanti.</p>");
-                        }
-                    });
-                }
-            });
-        });
-
-
-      
-        /** Color Picker **/
+               /** Color Picker **/
         const defaultColors = {
             main: "#181818",
             primary: "rgba(255, 255, 255, 0.6)",
